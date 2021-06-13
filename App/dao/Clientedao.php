@@ -5,6 +5,7 @@ if(!isset($_SESSION)){
 }
 
 
+
 class Clientedao{
 	public function cadcliente(Clientes $c){
 

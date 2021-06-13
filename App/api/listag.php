@@ -4,6 +4,8 @@ if(!isset($_SESSION)){
 	session_start();
 }
 
+
+
 $dataandh= file_get_contents("php://input");
 $datautf8=utf8_encode($dataandh);
 

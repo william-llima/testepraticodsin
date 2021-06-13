@@ -4,6 +4,8 @@ if(!isset($_SESSION)){
 	session_start();
 }
 
+ 
+
 class Agendamentosdao{
 	public function insertag(Agendamento $ag){
 			$sql="INSERT INTO agendamentos(typeid,clientid,dataagendamento,semanaag,horariomarcado)values(?,?,?,?,?)";

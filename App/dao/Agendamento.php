@@ -4,6 +4,8 @@ if(!isset($_SESSION)){
 	session_start();
 }
 
+ 
+
 class Agendamento{
 	private $typeid,$clientid,$dataag,$semanaag,$horam;
 

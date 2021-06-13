@@ -5,9 +5,7 @@ if(!isset($_SESSION)){
 	session_start();
 }
 
-// if(!$_SESSION["ADMUSER"]){
-// 	header("location:../view/index.php")
-// }
+ 
 class Clientes{
 	private $nome,$email,$telefone,$cpf,$senha;
 

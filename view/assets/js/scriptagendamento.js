@@ -58,6 +58,7 @@
 						var horarioserviceli=document.querySelector("#horarioserviceli")
 						var descriptionli=document.querySelector(".descriptionli")
 						function demonstraservice(dice){
+							console.log(dice)
 							var dicej=JSON.parse(dice)
 							
 							descriptionli.querySelector("p").textContent="Descrição : "+dicej[0].descricao

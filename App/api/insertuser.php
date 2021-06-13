@@ -6,6 +6,8 @@ if(!isset($_SESSION)){
 
 
 
+
+
 $data= file_get_contents("php://input");
 $datautf8=utf8_encode($data);
 $dataj=json_decode(utf8_decode($datautf8));

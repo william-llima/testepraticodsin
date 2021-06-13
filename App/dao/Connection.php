@@ -1,6 +1,6 @@
 <?php
 namespace App\dao;
-
+ 
 class Connection{
 	private static $instance;
 
