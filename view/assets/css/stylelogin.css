@@ -1,0 +1,97 @@
+#sectionlogin{
+
+	width:100%;
+	display:flex;
+	justify-content:center;
+	height:100%;
+	position:relative;
+	
+}
+*{
+	font-family: 'Roboto', sans-serif;
+}
+
+#formlogindiv{
+	width:30%;
+	margin-top:10px;
+	margin-right:100px;
+}
+#formregisterdiv{
+	width:30%;
+	margin-top:10px;
+}
+#formlogin div{
+
+	display:flex;
+	flex-direction:column;
+	margin-top:10px;
+
+}
+
+#formregister div{
+	display:flex;
+	flex-direction:column;	
+	margin-top:10px;
+}
+
+#formregister{
+	width:100%;
+	height:350px;
+	display:flex;
+	flex-direction: column;
+
+
+}
+#formlogin{
+	width:100%;
+	height:350px;
+	display:flex;
+	flex-direction:column;
+	justify-content: center;
+}
+:root{
+	--laranja:#C24438;
+	--marrom1:#822D26;
+	--marrom2:#421713;
+	--marrom3:#361310;
+	--marrom4:#33120F;
+}
+
+#sectionlogin input{
+	font-size:14px;
+	height:28px;
+}
+#sectionlogin button{
+	width:100px;
+	padding:5px;
+	
+}
+#sectionlogin #loginbtn{
+	background-color:var(--marrom2);
+	color:var(--laranja);
+	font-weight: bold;
+}
+#formregister #registerbtn{
+	background-color:var(--marrom2);
+	color:var(--laranja);
+	font-weight: bold;
+}
+
+#sectionlogin .divbuttonlogin{
+	display:flex;
+	align-items: flex-end;
+}
+
+#alertas{
+	position:absolute;
+	bottom:-40px;
+	right:20px;
+	text-align:center;
+	color:white;
+	font-size:28px;
+	display: block;
+	height:40px;
+	background-color:var(--laranja);
+	width:500px;
+	display:none;
+}

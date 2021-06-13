@@ -1,0 +1,51 @@
+#containeragendamento{
+	width:100vw;
+	display:flex;
+}
+
+#agendamentoleft{
+	width:49%;
+}
+#agendamentoright{
+	width:49%;
+}
+
+
+#agendamentoright ul{
+	list-style:none;
+}
+
+#cardag{
+	width:90%;
+	height:260px;
+	display:flex;
+	font-size:20px;
+	font-weight:bold;
+	flex-direction:column;
+	justify-content:space-around;
+	
+}
+#buttonagd{
+	margin-top:20px;
+	padding:7px;
+	font-weight:bold;
+	font-size:16px;
+	background-color:var(--marrom3);
+	color:var(--laranja);
+	cursor:pointer;
+	
+
+}
+
+#dataagendam,#selecthorario{
+	cursor:pointer;
+	width:40%;
+	height:30px;
+
+}
+
+#alertastatushorario{
+	display:none;
+	width:80%;
+	font-size:18px;
+}

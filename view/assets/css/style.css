@@ -1,0 +1,165 @@
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+	font-family: 'Roboto', sans-serif;
+}
+#body2{
+	max-width:1360px;
+	width:100vw;
+	height:100vh;
+	overflow-x:  hidden;
+}
+:root{
+	--laranja:#C24438;
+	--marrom1:#822D26;
+	--marrom2:#421713;
+	--marrom3:#361310;
+	--marrom4:#33120F;
+}
+
+nav{
+	width:100%;
+	height:80px;
+}
+
+#nav{
+	background-color:var(--marrom4);
+	width:100%;
+	height:100%;
+	display:flex;
+	align-items: center;
+	justify-content:space-between;
+	overflow: hidden;
+
+}
+#logonav{
+	width:100px;
+	height:80%;
+	margin-left:10px;
+	border:solid 1px black;
+	background-image:url("../img/salao-de-beleza.svg");
+	background-repeat:no-repeat;
+	background-size:contain;
+}
+#listitems{
+	width:40%;
+}
+#listitems ul{
+	list-style:none;
+	display:flex;
+	justify-content: space-around;
+}
+#listitems ul a{
+	font-weight:bold;
+	color:white;
+	text-decoration:none;
+	cursor:pointer;
+}
+
+.cardsection,.cardsection2,.cardsection3{
+	width:200px;
+	border:solid 1px black;
+	height:150px;
+	position:relative;
+}
+
+
+section{
+	width:100vw;
+
+	
+
+
+}
+
+#box_categoria1,#box_categoria2,#box_categoria3{
+	width:100%;
+	display:flex;
+	justify-content: center;
+	height:500px;
+	margin-top: 10px;
+}
+
+
+
+
+#section  .divdescriptioncard{
+	display:flex;
+	width:100%;
+	padding:10px;
+	justify-content: space-between;
+}
+#section2 .divdescriptioncard{
+	display:flex;
+	width:100%;
+	padding:10px;
+	justify-content: space-between;
+} 
+#section3 .divdescriptioncard{
+	display:flex;
+	width:100%;
+	padding:10px;
+	justify-content: space-between;
+}
+
+#section .description_service_card{
+	padding:10px;
+}
+#section2 .description_service_card{
+	padding:10px;
+}
+#section3 .description_service_card{
+	padding:10px;
+}
+
+#img_categoria1,#img_categoria2,#img_categoria3{
+	width:40%;
+}
+#img_categoria1{
+	background-image:url("../img/cortemasculino.jpg");
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+#img_categoria2{
+	background-image:url("../img/escova.jpg");
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+#img_categoria3{
+	background-image:url("../img/quimica.jpg");
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+#section,#section2,#section3{
+	display: grid;
+	padding:10px;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+}
+
+#footer{
+	width:100%;
+	display: flex;
+	height:150px;
+	align-items: center;
+	justify-content: space-around;
+	background-color:var(--marrom2);
+	color:var(--laranja);
+	font-weight:bold;
+}
+#footer ul{
+	list-style:none;
+}
+
+#section .iconemore,.iconemore2,.iconemore3{
+	width:40px;
+	height:40px;
+	position: absolute;
+	right:2px;
+	bottom:2px;
+	
+	background-image:url("../img/sinal-de-mais.svg");
+	background-repeat:no-repeat;
+	background-size: contain;
+}
