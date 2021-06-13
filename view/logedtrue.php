@@ -47,10 +47,10 @@ if(isset($idservice)){
 		</div>
 	</div>
 	<div id="agendamentoright">
-		<h2>Servico Selecionado</h2>
+		<h2>Serviço Selecionado</h2>
 		<?php
 			if(!isset($idservice)){
-			echo "<h2>Nenhum Servico Selecionado</h2>";
+			echo "<h2>Nenhum Serviço Selecionado</h2>";
 }
 		 ?>
 		 <div id="cardag">

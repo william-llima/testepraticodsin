@@ -23,23 +23,21 @@ class Agendamentosdao{
 		}
 	}
 
-	public function verifyClient($email,$senha){
-		$sql="SELECT * FROM clientes where email=? and senha=?";
+	public function verifyAgendamento($data){
+		$sql="SELECT * FROM agendamentos where dataagendamento=?";
 		$conn=Connection::getConn();
 		$stmt=$conn->prepare($sql);
-		$stmt->bind_param("ss",$emailT,$senhaT);
-		$emailT=$conn->real_escape_string($email);
-		$senhaT=$conn->real_escape_string($senha);
+		$stmt->bind_param("s",$dataT);
+		$dataT=$conn->real_escape_string($data);
 		if($stmt->execute()){
 			$linha=$stmt->get_result();
 			if($linha->num_rows > 0){
-				$row=$linha->fetch_array();
-				$_SESSION["userid"]=$row["id"];
-				return "200";
+				$rows=$linha->fetch_all(MYSQLI_ASSOC);
+				return json_encode($rows,JSON_UNESCAPED_UNICODE);
 				
 
 			}else{
-				return [];
+				return "200";
 			}
 		}else{
 			return "error";

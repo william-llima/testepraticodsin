@@ -102,31 +102,89 @@
 					alsth.style.display="none"
 				}
 
-				var agdbtn=document.querySelector("#buttonagd").disabled=true
 				
+
+			var horariocerto=false
+			var datacerta=false
+			var verifiedh=false
+
+
+				function bollh(data){
+				
+					if(data==200){
+						verifiedh=true
+					}else{
+						 verifiedh=false
+					}
+					if(verifiedh){
+						horariocerto=true
+					}else{
+						horariocerto=false
+						feedbackhorario("Horario Indisponivel",0)
+					}
+
+					if(datacerta && horariocerto){
+					agdbtn.disabled=false
+					feedbackhorario("Horario Disponivel",1)
+					}
+					
+				}
 
 
 			var selecthorario=document.getElementById("selecthorario")
 			var dataagendam=document.getElementById("dataagendam")
 			selecthorario.addEventListener("change",function(event){
+
 				if(dataagendam.value != "" && event.target.value != ""){
+
+
 				var dataarr=dataagendam.value.split("-")
 				var data= new Date()
 				var day=data.getDate()
 				var year=data.getFullYear()
 				var month=data.getMonth()+1
-				console.log(data)
-				console.log(dataarr,day,year,month)
-					if(dataagendam.value ){
-
+				
+					if(parseInt(dataarr[0]) > year ){
+						datacerta=true
+					}else if(parseInt(dataarr[0])== year && parseInt(dataarr[1]) > month ){
+						datacerta=true
+					}else if(parseInt(dataarr[1])== month 
+						&& parseInt(dataarr[2]) >= day ){
+						datacerta=true
+					}else{
+						datacerta=false
+						feedbackhorario("Data invalida",0)
+						dataagendam.value=""
+						agdbtn.disabled=true
+						event.target.value=""
 					}
-				console.log(event.target.value)	
 				}else{
 					event.target.value=""
+					agdbtn.disabled=true
 					feedbackhorario("Selecione uma Data",0)
 				}
 				
+				
+				if(datacerta){
+
+					var dadosdatah={
+						"hora":event.target.value,
+						"data":dataarr[2]+"/"+dataarr[1]+"/"+dataarr[0]
+					}
+					var dadosdatahjsf=JSON.stringify(dadosdatah)
+					
+					  getsend("/testepraticodsin/App/api/listag.php",dadosdatahjsf,bollh)
+				}
+				
 			})	
+
+			var agdbtn=document.querySelector("#buttonagd")
+				agdbtn.disabled=true
+				agdbtn.addEventListener("click",function(event){
+					event.preventDefault()
+					console.log("clicado")
+				})
+
 
 	}
 
