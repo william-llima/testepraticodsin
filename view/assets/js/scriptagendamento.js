@@ -130,19 +130,30 @@
 					
 				}
 
-
+			var dadosdatahjsf
 			var selecthorario=document.getElementById("selecthorario")
 			var dataagendam=document.getElementById("dataagendam")
+			var iduser=document.getElementById("iduser")
+			var data= new Date()
+				var day=data.getDate()
+				var year=data.getFullYear()
+				var month=data.getMonth()+1
+				var semana=data.getDay()
+				var dataarr			
+
+				dataagendam.addEventListener("change",function(){
+					datacerta=false
+					agdbtn.disabled=true
+					selecthorario.value=""
+				})
+
 			selecthorario.addEventListener("change",function(event){
 
 				if(dataagendam.value != "" && event.target.value != ""){
 
-
-				var dataarr=dataagendam.value.split("-")
-				var data= new Date()
-				var day=data.getDate()
-				var year=data.getFullYear()
-				var month=data.getMonth()+1
+					dataarr=dataagendam.value.split("-")
+				
+				
 				
 					if(parseInt(dataarr[0]) > year ){
 						datacerta=true
@@ -171,18 +182,37 @@
 						"hora":event.target.value,
 						"data":dataarr[2]+"/"+dataarr[1]+"/"+dataarr[0]
 					}
-					var dadosdatahjsf=JSON.stringify(dadosdatah)
+					dadosdatahjsf=JSON.stringify(dadosdatah)
 					
 					  getsend("/testepraticodsin/App/api/listag.php",dadosdatahjsf,bollh)
 				}
 				
 			})	
 
+			function verifyagenda(data){
+				console.log(data)
+			}
+
 			var agdbtn=document.querySelector("#buttonagd")
 				agdbtn.disabled=true
 				agdbtn.addEventListener("click",function(event){
 					event.preventDefault()
-					console.log("clicado")
+					if(datacerta && horariocerto){
+						console.log(selecthorario.value,dataarr[2]+"/"+dataarr[1]+"/"+dataarr[0],idservice,iduser.value,semana)	
+						var objdadosform={
+							"servicetype":idservice,
+							"idclient":iduser.value,
+							"dataagi":dataarr[2]+"/"+dataarr[1]+"/"+dataarr[0],
+							"semana":semana,
+							"horario":selecthorario.value
+						}
+						var objdadosformjsf=JSON.stringify(objdadosform)
+						console.log(objdadosformjsf)
+						getsend("/testepraticodsin/App/api/insertag.php",objdadosformjsf,verifyagenda)
+
+
+					}
+					
 				})
 
 

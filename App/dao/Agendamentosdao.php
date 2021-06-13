@@ -9,12 +9,12 @@ class Agendamentosdao{
 			$sql="INSERT INTO agendamentos(typeid,clientid,dataagendamento,semanaag,horariomarcado)values(?,?,?,?,?)";
 		$conn=Connection::getConn();
 		$stmt=$conn->prepare($sql);
-		$stmt->bind_param('iisss',$nomeT,$emailT,$telefoneT,$cpfT,$senhaT);
-		$nomeT=$conn->real_escape_string($c->getNome());
-		$emailT=$conn->real_escape_string($c->getEmail());
-		$telefoneT=$conn->real_escape_string($c->getTelefone());
-		$cpfT=$conn->real_escape_string($c->getCpf());
-		$senhaT=$conn->real_escape_string($c->getSenha());
+		$stmt->bind_param('iisis',$agtsT,$agclidT,$dataagT,$semanaagT,$horarioagT);
+		$agtsT=$conn->real_escape_string($ag->getTypeid());
+		$agclidT=$conn->real_escape_string($ag->getClientid());
+		$dataagT=$conn->real_escape_string($ag->getDataag());
+		$semanaagT=$conn->real_escape_string($ag->getSemanaag());
+		$horarioagT=$conn->real_escape_string($ag->getHoram());
 
 		if($stmt->execute()){
 			return "200";

@@ -63,7 +63,7 @@ if(isset($idservice)){
 		 		
 		 	</ul>
 		 	<form id="formag">
-		 		<input type="hidden" name="iduser" class="iduser" value="<?php if(isset($iduser)){echo $iduser; } ?>">
+		 		<input type="hidden" name="iduser" id="iduser" value="<?php if(isset($iduser)){echo $iduser; } ?>">
 		 		<input type="hidden" name="idservice" id="idservice" value="<?php if(isset($idservice)){echo $idservice; } ?>">
 		 		<label>Selecione uma Data em seguida um Horario Para verificação
 		 		de disponibilidade</label><br/>
