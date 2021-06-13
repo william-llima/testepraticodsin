@@ -67,9 +67,9 @@
 						}	
 				}
 
-					
+				var typeservag	
 				function createoption(dataj,type){
-					
+					 typeservag=type
 					for(i=0; i<dataj.length; i++){
 						if(dataj[i].typeservices==type){
 							var selectc=document.createElement("option")
@@ -90,6 +90,7 @@
 						alsth.style.color="white"
 					}else if(typeal==1){
 						alsth.style.backgroundColor="rgb(144, 238, 144)"
+						alsth.style.color="black"
 					}
 					if(timefedh){
 						clearTimeout(timefedh)
@@ -110,18 +111,18 @@
 
 
 				function bollh(data){
-				
+					console.log(data)
 					if(data==200){
 						verifiedh=true
+						if(verifiedh){
+						horariocerto=true
+						}
 					}else{
 						 verifiedh=false
-					}
-					if(verifiedh){
-						horariocerto=true
-					}else{
-						horariocerto=false
+						 horariocerto=false
 						feedbackhorario("Horario Indisponivel",0)
 					}
+					
 
 					if(datacerta && horariocerto){
 					agdbtn.disabled=false
@@ -138,7 +139,7 @@
 				var day=data.getDate()
 				var year=data.getFullYear()
 				var month=data.getMonth()+1
-				var semana=data.getDay()
+				var semana=data.getDay()+1
 				var dataarr			
 
 				dataagendam.addEventListener("change",function(){
@@ -180,7 +181,8 @@
 
 					var dadosdatah={
 						"hora":event.target.value,
-						"data":dataarr[2]+"/"+dataarr[1]+"/"+dataarr[0]
+						"data":dataarr[2]+"/"+dataarr[1]+"/"+dataarr[0],
+						"types":typeservag
 					}
 					dadosdatahjsf=JSON.stringify(dadosdatah)
 					
@@ -190,7 +192,13 @@
 			})	
 
 			function verifyagenda(data){
-				console.log(data)
+				if(data=="200"){
+					feedbackhorario("Agendamento realizado com sucesso",1)
+					agdbtn.disabled=true
+				datacerta=false
+				horariocerto=false
+				}
+								
 			}
 
 			var agdbtn=document.querySelector("#buttonagd")
@@ -198,7 +206,7 @@
 				agdbtn.addEventListener("click",function(event){
 					event.preventDefault()
 					if(datacerta && horariocerto){
-						console.log(selecthorario.value,dataarr[2]+"/"+dataarr[1]+"/"+dataarr[0],idservice,iduser.value,semana)	
+							
 						var objdadosform={
 							"servicetype":idservice,
 							"idclient":iduser.value,
@@ -207,7 +215,7 @@
 							"horario":selecthorario.value
 						}
 						var objdadosformjsf=JSON.stringify(objdadosform)
-						console.log(objdadosformjsf)
+						
 						getsend("/testepraticodsin/App/api/insertag.php",objdadosformjsf,verifyagenda)
 
 
