@@ -1,6 +1,4 @@
-// Cabeleleila@Leila
 
-// Cabeleleila@Leila2021
 
 function getallusr(destino,funct){
 					xhr=new XMLHttpRequest()

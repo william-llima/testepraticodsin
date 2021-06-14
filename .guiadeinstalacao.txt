@@ -1,0 +1,10 @@
+Projeto criado em um servidor apache Para garantir total compatibilidade por favor rode em um servidor apache.
+para iniciar voce vai ter que criar uma pasta chamada testepraticodsin caso o projeto nao esteja dentro de uma pasta chamada testepraticodsin
+depois entre na pasta e faça um git clone nesse repositorio "https://github.com/william-llima/testepraticodsin"
+
+depois que ja tiver com o codigo baixado vai precisar instalar o php e o composer na maquina caso nao tenha instalado.
+
+depois de instalados dentro da pasta do projeto rode o comando "composer dump-autoload"
+
+para acessar a parte administrativa basta logar utilizando as credenciais de administrador que sao email Cabeleleila@Leila senha Cabeleleila@Leila2021.
+
