@@ -1,5 +1,7 @@
 ;(function(){
 	window.onload=function(){
+
+	
 			function gethorarios(destino,funct,typed){
 					xhr=new XMLHttpRequest()
 					urlenvio=destino
@@ -40,6 +42,18 @@
 					
 
 				}
+
+				var iduser2=document.getElementById("iduser")
+
+					var idus={
+					"idcli":iduser2.value
+				}
+				var idusj = JSON.stringify(idus)
+				if(!idservice){
+				getsend("/testepraticodsin/App/api/listoneag.php",idusj,valoresaglist)	
+				}
+				
+
 				if(idservice){
 							var searchvaluej=makevalue()
 						function makevalue(){
@@ -70,6 +84,7 @@
 
 				var typeservag	
 				function createoption(dataj,type){
+
 					 typeservag=type
 					for(i=0; i<dataj.length; i++){
 						if(dataj[i].typeservices==type){
@@ -79,6 +94,8 @@
 							select.appendChild(selectc)	
 						}
 					}
+					getsend("/testepraticodsin/App/api/listoneag.php",idusj,valoresaglist)
+
 					
 				}
 					var timefedh
@@ -207,6 +224,7 @@
 			function verifyagenda(data){
 				if(data=="200"){
 					feedbackhorario("Agendamento realizado com sucesso",1)
+					getsend("/testepraticodsin/App/api/listoneag.php",idusj,valoresaglist)
 					agdbtn.disabled=true
 				datacerta=false
 				horariocerto=false
@@ -235,6 +253,35 @@
 					}
 					
 				})
+
+
+
+
+
+				var idagendamento=""
+				var hag=document.getElementById("historicoagendamentos")
+				function valoresaglist(vdata){
+					
+					var ulag=document.querySelector(".list_agendados")
+					vdataj=JSON.parse(vdata)
+					hag.innerHTML=""
+					vdataj.forEach(function(elev){
+
+						ncardag=ulag.cloneNode(true)
+						ncardag.querySelector(".textag1").textContent=elev.descricao
+						ncardag.querySelector(".textag2").textContent="Preço R$:"+elev.preco
+						ncardag.querySelector(".textag3").textContent=
+						"Data : "+elev.dataagendamento.substring(0,2)+"/"+
+						elev.dataagendamento.substring(2,4)+"/"+
+						elev.dataagendamento.substring(4,6)
+						ncardag.querySelector(".textag5").textContent="Horario: "+elev.horariomarcado
+						hag.appendChild(ncardag)	
+					})
+					ulag.remove()
+					
+				}
+			
+
 
 
 	}

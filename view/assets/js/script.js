@@ -1,4 +1,6 @@
 ;(function(){
+
+	
 		function getdados(destino){
 			xhr=new XMLHttpRequest()
 			urlenvio=destino

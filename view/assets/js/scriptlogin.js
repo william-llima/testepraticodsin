@@ -89,6 +89,10 @@
 					document.location.href="/testepraticodsin/index.php"
 
 	}
+	function sucessadm(){
+					document.location.href="/testepraticodsin/view/adm.php"
+
+	}
 	var time=false
 	function senddados(destino,dadosjsf){
 		xhr=new XMLHttpRequest()
@@ -98,6 +102,7 @@
 		xhr.send(dadosjsf)
 		xhr.onreadystatechange=function(){
 			if(xhr.readyState==4 && xhr.status==200){
+				console.log(xhr.responseText)
 				if(xhr.responseText=="insert200"){
 					feedback("Usuario cadastrado com sucesso",1)
 				}else if(xhr.responseText=="verify200"){
@@ -114,6 +119,12 @@
 				}else if(xhr.responseText=="Usuario Ja cadastrado"){
 					
 					feedback("Usuario Ja cadastrado",0)
+				}else if(xhr.responseText=="adm200"){
+					feedback("Adm Logado",1)
+					if(time){
+						clearTimeout(time)
+					}
+					time= setTimeout(sucessadm,4000)
 				}else{
 					
 					feedback("Erro na operação",0)

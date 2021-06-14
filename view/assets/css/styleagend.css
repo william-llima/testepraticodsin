@@ -49,3 +49,13 @@
 	width:80%;
 	font-size:18px;
 }
+
+#historicoagendamentos{
+	margin-left:20px;
+	margin-top:10px;
+	width:90%;
+}
+
+#historicoagendamentos ul{
+	list-style: none;
+}

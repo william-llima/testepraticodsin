@@ -16,6 +16,12 @@ Deny from all
 
 </FilesMatch>
 
+<FilesMatch "bd.sql">
+Deny from all
+
+</FilesMatch>
+
+
 <FilesMatch "composer.json">
 Deny from all
 
@@ -28,3 +34,4 @@ Deny from all
 <Limit OPTIONS CONNECT >
 Deny from all
 </Limit>
+

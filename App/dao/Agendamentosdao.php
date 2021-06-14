@@ -46,6 +46,46 @@ class Agendamentosdao{
 		}
 	}
 
+
+	public function ListallAg(){
+		$sql="SELECT * from agendamentos inner join servicesdesc on agendamentos.typeid = servicesdesc.id inner join clientes on agendamentos.clientid = clientes.id";
+		$conn=Connection::getConn();
+		if($conn->query($sql)){
+			$linha=	$conn->query($sql);
+			if($linha->num_rows > 0){
+				$rows=$linha->fetch_all(MYSQLI_ASSOC);
+				return json_encode($rows,JSON_UNESCAPED_UNICODE);
+				
+
+			}else{
+				return "200";
+			}
+		}else{
+			return "error";
+		}
+	}
+
+	public function verifyoneAg($dataid){
+		$sql="SELECT * from agendamentos inner join servicesdesc on agendamentos.typeid = servicesdesc.id where clientid=?";
+		$conn=Connection::getConn();
+		$stmt=$conn->prepare($sql);
+		$stmt->bind_param("i",$dataT);
+		$dataT=$conn->real_escape_string($dataid);
+		if($stmt->execute()){
+			$linha=$stmt->get_result();
+			if($linha->num_rows > 0){
+				$rows=$linha->fetch_all(MYSQLI_ASSOC);
+				return json_encode($rows,JSON_UNESCAPED_UNICODE);
+				
+
+			}else{
+				return "200";
+			}
+		}else{
+			return "error";
+		}
+	}
+
 	public function listHorarios(){
 				$sql="SELECT * FROM horariosd";
 				$conn=Connection::getConn();

@@ -8,6 +8,7 @@ if(!isset($_SESSION)){
 
 if(isset($_GET["logout"])){
 	session_destroy();
+	session_unset();
 }
 
 

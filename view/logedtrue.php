@@ -4,16 +4,14 @@ if(!isset($_SESSION)){
 	session_start();
 }
 if(!$_SESSION["loged"]){
-	header("location:index.php");
+	header("location:../index.php");
 	
 }
 if(isset($_GET["id"])){
 	$idservice=$_GET["id"];	
 }
-if(isset($idservice)){
-	$idservice;
-	$iduser= $_SESSION["userid"];
-}
+
+$iduser= $_SESSION["userid"];
 ?>
 
 <!DOCTYPE html>
@@ -39,8 +37,12 @@ if(isset($idservice)){
 	<div id="agendamentoleft">
 		<h2>Agendamentos</h2>
 		<div id="historicoagendamentos">
-			<ul id="list_agendados">
-				<li class=textag></li>
+			<ul class="list_agendados">
+				<li class=textag1></li>
+				<li class=textag2></li>
+				<li class=textag3></li>
+				<li class=textag5></li>
+				<li class=textag4><input type="submit" value=""></li>
 			</ul>
 		</div>
 		<div id="formulario de alteração">
