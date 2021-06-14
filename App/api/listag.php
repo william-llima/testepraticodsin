@@ -33,48 +33,36 @@ if($result=="200"){
 
 $resultobj=json_decode($result);
 
+
+
 foreach($resultobj as $robj){
-	if($robj->horariomarcado==$hora){
-	die("500");
-	}else if($robj->horariomarcado=="8:00" && $robj->typeid != "1" && $robj->typeid != "2" && $robj->typeid != "3"){
-		$horal= str_replace(":","",$hora);
-		$horaml=srt_replace(":","",$robj->horariomarcado);
-		if($horal < $horaml+200 ){
-			die("500");
+	if($robj->horariomarcado==$hora)die("500");
+	if($robj->clientid==$_SESSION["userid"]){
+			if(!isset($trq)){
+				echo "1";	
+			}
+			
+			$trq="teste";
+		}	
+
+		$horan= str_replace(":","",$hora);
+		$horanm= str_replace(":","",$robj->horariomarcado);
+		if($robj->typeid > 3 ){
+			if($horan > $horanm){
+				if($horan-200 < $horanm){
+					die("500");
+				}
+			}
 		}
-	}
-	else if($robj->horariomarcado=="10:00" && $robj->typeid != "1" && $robj->typeid != "2" && $robj->typeid != "3"){
-		$horal= str_replace(":","",$hora);
-		$horaml=srt_replace(":","",$robj->horariomarcado);
-		if($horal < $horaml+200 ){
-			die("500");
+
+		if($types != "1"){
+			if($horan < $horanm){
+				if($horan+200 > $horanm){
+					die("500");
+				}	
+			}
+			
 		}
-	}
-	else if($robj->horariomarcado=="12:00" && $robj->typeid != "1" && $robj->typeid != "2" && $robj->typeid != "3"){
-		$horal= str_replace(":","",$hora);
-		$horaml=srt_replace(":","",$robj->horariomarcado);
-		if($horal < $horaml+200 ){
-			die("500");
-		}
-	}else if($robj->horariomarcado=="14:00" && $robj->typeid != "1" && $robj->typeid != "2" && $robj->typeid != "3"){
-		$horal= str_replace(":","",$hora);
-		$horaml=srt_replace(":","",$robj->horariomarcado);
-		if($horal < $horaml+200 ){
-			die("500");
-		}
-	}else if($robj->horariomarcado=="16:00" && $robj->typeid != "1" && $robj->typeid != "2" && $robj->typeid != "3"){
-		$horal= str_replace(":","",$hora);
-		$horaml=srt_replace(":","",$robj->horariomarcado);
-		if($horal < $horaml+200 ){
-			die("500");
-		}
-	}else if($types == "2"){
-		$horal= str_replace(":","",$hora);
-		$horaml=str_replace(":","",$robj->horariomarcado);
-		if($horaml > $horal){
-			die("500");
-		}
-	}	
 
 }
 echo "200";

@@ -8,6 +8,7 @@
 			xhr.onreadystatechange=function(){
 				if(xhr.readyState==4 && xhr.status==200){
 					dataget=xhr.responseText
+					
 					datagetj=JSON.parse(dataget)
 					renderservices(datagetj)	
 				}

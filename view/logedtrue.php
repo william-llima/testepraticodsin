@@ -37,11 +37,11 @@ if(isset($idservice)){
 	</nav>
 <div id="containeragendamento">
 	<div id="agendamentoleft">
-		<ul>
-			<li><button>Historico de agendamento</button></li>
-			<li><button>Alterar agendamento</button></li>
-		</ul>
+		<h2>Agendamentos</h2>
 		<div id="historicoagendamentos">
+			<ul id="list_agendados">
+				<li class=textag></li>
+			</ul>
 		</div>
 		<div id="formulario de alteração">
 		</div>

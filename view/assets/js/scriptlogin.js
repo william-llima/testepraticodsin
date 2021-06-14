@@ -115,11 +115,11 @@
 					
 					feedback("Usuario Ja cadastrado",0)
 				}else{
-					console.log(xhr.responseText)
+					
 					feedback("Erro na operação",0)
 				}
 			}else if(xhr.readyState==4){
-				console.log(xhr.responseText)
+				
 			}
 		}
 	}

@@ -58,7 +58,7 @@
 						var horarioserviceli=document.querySelector("#horarioserviceli")
 						var descriptionli=document.querySelector(".descriptionli")
 						function demonstraservice(dice){
-							console.log(dice)
+						
 							var dicej=JSON.parse(dice)
 							
 							descriptionli.querySelector("p").textContent="Descrição : "+dicej[0].descricao
@@ -112,7 +112,19 @@
 
 
 				function bollh(data){
-					console.log(data)
+					
+					if(data=="1200"){
+						verifiedh=true
+						if(verifiedh){
+						horariocerto=true
+
+						feedbackhorario("Horario ok Se possivel agende os serviços para a mesma semana",1)
+							if(datacerta && horariocerto){
+								agdbtn.disabled=false									
+						}
+					}
+					return
+					}
 					if(data==200){
 						verifiedh=true
 						if(verifiedh){
