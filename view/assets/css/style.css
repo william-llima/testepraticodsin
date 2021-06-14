@@ -8,7 +8,8 @@
 	max-width:1360px;
 	width:100vw;
 	height:100vh;
-	overflow-x:  hidden;
+	overflow-x: hidden;
+	
 }
 :root{
 	--laranja:#C24438;
@@ -45,6 +46,7 @@ nav{
 #listitems{
 	width:40%;
 }
+
 #listitems ul{
 	list-style:none;
 	display:flex;
@@ -134,7 +136,7 @@ section{
 #section,#section2,#section3{
 	display: grid;
 	padding:10px;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: repeat(2 ,1fr);
 	grid-template-rows: 1fr 1fr 1fr;
 }
 
@@ -162,4 +164,47 @@ section{
 	background-image:url("../img/sinal-de-mais.svg");
 	background-repeat:no-repeat;
 	background-size: contain;
+}
+
+
+#menuamb{
+	display:none;
+}
+
+@media(max-width:600px){
+		#listitems{
+			display: none;
+		}	
+		#section{
+			width:100%;
+			overflow: hidden;
+		}
+		#img_categoria1,#img_categoria2,#img_categoria3{
+			display: none;
+		}
+		#section,#section2,#section3{
+	display: grid;
+	padding:10px;
+	grid-template-columns: repeat(auto-fit,minmax(100px,200px));
+	grid-template-rows: 1fr 1fr 1fr;
+	}
+
+	#box_categoria1,#box_categoria2,#box_categoria3{
+			height:auto
+	
+	}
+
+	#menuamb{
+		width:50px;
+		height:50px;
+		border:solid black white;
+		display:flex;
+		flex-direction: column;
+		justify-content: space-around;
+	}
+	#menuamb div{
+		width:90%;
+		height:5px;
+		background-color: white;
+	}
 }
