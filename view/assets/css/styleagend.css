@@ -5,6 +5,7 @@
 
 #agendamentoleft{
 	width:49%;
+	position: relative;
 }
 #agendamentoright{
 	width:49%;
@@ -58,4 +59,58 @@
 
 #historicoagendamentos ul{
 	list-style: none;
+	margin-top:10px;
+}
+#historicoagendamentos ul li input{
+	padding:5px;
+}
+
+#formulario_de_alteracao select{
+	width:80%;
+	height:30px;
+	margin:10px;
+}
+
+#formulario_de_alteracao button{
+	padding: 10px;
+	margin:10px;
+
+}
+#formulario_de_alteracao input{
+	padding: 10px;
+	margin:10px;
+	width:80%;
+
+}
+
+#formulario_de_alteracao {
+	position:absolute;
+	top:0;
+	left:0;
+	height:50vh;
+	background-color: white;
+	width:300px;
+	display:none;
+
+}
+
+#formulario_de_alteracao form{
+	width:90%;
+	position: absolute;
+	left:50%;
+	top:50%;
+	margin-top:-100px;
+	margin-left: -100px;
+}
+
+#feedupdate{
+	position: absolute;
+	bottom: -60px;
+	left:10px;
+	width:90%;
+	height:50px;
+	font-size:20px;
+	display:none;
+	text-align: center;
+	border:solid white 1px;
 }

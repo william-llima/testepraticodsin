@@ -42,10 +42,23 @@ $iduser= $_SESSION["userid"];
 				<li class=textag2></li>
 				<li class=textag3></li>
 				<li class=textag5></li>
-				<li class=textag4><input type="submit" value=""></li>
+				<li class=textag4><input type="submit" class="inptalt" value="Editar"></li>
 			</ul>
 		</div>
-		<div id="formulario de alteração">
+		<div id="formulario_de_alteracao">
+			<form>
+				<select name="selectupdate" id="idserviceupdate"> 
+				<option value="">Selecione um servico</option>
+				</select><br/>
+				<input type="date" name="dateupdate" id="dateupdate"><br/>
+				<select name="updatehora" id="horaupdate">
+				<option value="" >Selecione um horario</option>
+				 </select><br/>
+				
+				<button id="updatebtn">Atualizar</button>
+				<button id="cancelupdate">Cancelar</button>
+			</form>
+			<span id="feedupdate">Agendamento ok</span>
 		</div>
 	</div>
 	<div id="agendamentoright">

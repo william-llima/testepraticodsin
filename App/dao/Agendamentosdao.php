@@ -25,6 +25,25 @@ class Agendamentosdao{
 		}
 	}
 
+	public function updateag(Agendamentoupdate $ag){
+			$sql="UPDATE agendamentos set typeid=?,clientid=?,dataagendamento=?,semanaag=?,horariomarcado=? where id=? ";
+		$conn=Connection::getConn();
+		$stmt=$conn->prepare($sql);
+		$stmt->bind_param('iisiss',$agtsT,$agclidT,$dataagT,$semanaagT,$horarioagT,$idT);
+		$agtsT=$conn->real_escape_string($ag->getTypeid());
+		$agclidT=$conn->real_escape_string($ag->getClientid());
+		$dataagT=$conn->real_escape_string($ag->getDataag());
+		$semanaagT=$conn->real_escape_string($ag->getSemanaag());
+		$horarioagT=$conn->real_escape_string($ag->getHoram());
+		$idT=$conn->real_escape_string($ag->getId());
+
+		if($stmt->execute()){
+			return "200";
+		}else{
+			return "500";
+		}
+	}
+
 	public function verifyAgendamento($data){
 		$sql="SELECT * FROM agendamentos where dataagendamento=?";
 		$conn=Connection::getConn();
@@ -66,7 +85,7 @@ class Agendamentosdao{
 	}
 
 	public function verifyoneAg($dataid){
-		$sql="SELECT * from agendamentos inner join servicesdesc on agendamentos.typeid = servicesdesc.id where clientid=?";
+		$sql="SELECT agendamentos.id,agendamentos.clientid,agendamentos.dataagendamento,agendamentos.horariomarcado,agendamentos.typeid,servicesdesc.preco,servicesdesc.descricao from agendamentos inner join servicesdesc on agendamentos.typeid = servicesdesc.id where clientid=?";
 		$conn=Connection::getConn();
 		$stmt=$conn->prepare($sql);
 		$stmt->bind_param("i",$dataT);

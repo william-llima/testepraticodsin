@@ -102,7 +102,7 @@
 		xhr.send(dadosjsf)
 		xhr.onreadystatechange=function(){
 			if(xhr.readyState==4 && xhr.status==200){
-				console.log(xhr.responseText)
+				
 				if(xhr.responseText=="insert200"){
 					feedback("Usuario cadastrado com sucesso",1)
 				}else if(xhr.responseText=="verify200"){
